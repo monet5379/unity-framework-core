@@ -73,7 +73,10 @@ namespace Monet5379
             }
             else
             {
-                text.ResetText();
+                if (!string.IsNullOrEmpty(text.text))
+                {
+                    text.text = string.Empty;
+                }
             }
         }
 

@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+## [0.3.2] - 2026-11-03
+
+### Fixed
+
+- `LocalizedTextContentBinding` — Framework 전용 `UITextEx.ResetText` 호출 제거 (패키지 asmdef에서 CS1061)
+- `Runtime/Localization/Localized/` 폴더 `.meta` 추가 (immutable PackageCache import 경고)
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.2`
+
 ## [0.3.1] - 2026-11-03
 
 ### Fixed
