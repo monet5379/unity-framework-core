@@ -1,0 +1,20 @@
+{
+    "name": "Monet5379.Core.Localization",
+    "rootNamespace": "Monet5379",
+    "references": [
+        "Monet5379.Core.Inspector",
+        "Monet5379.Core.Utility",
+        "ConditionalLog.Runtime",
+        "Unity.TextMeshPro",
+        "TmpFontPipeline.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

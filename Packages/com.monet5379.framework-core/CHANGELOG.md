@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-03
+
+### Added
+
+- `Monet5379.Core.Localization` — `LanguageNames` · `ILocalizationSource` · `LocalizationContext` · `LocalizationLogTags` · `UILocalizedText` · binding · `LocalizedTextStyleTable` · `[StringTableKey]`
+- `Monet5379.Core.Localization.Editor` — `StringTableKeyDrawer` · catalog (기본 `StringUI.json` · `StringDialogue.json` 경로)
+- [Architecture_Localization.md](../../docs/architecture/Architecture_Localization.md)
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.0`
+- 소비 프로젝트는 `com.monet5379.conditional-log` · `com.monet5379.tmp-font-pipeline`를 함께 pin한다.
+
 ## [0.2.0] - 2026-11-03
 
 ### Added
