@@ -4,6 +4,18 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-03
+
+### Added
+
+- `Monet5379.Core.Event` — `GlobalCallback` · `GlobalEventBus<TKey>` · `GlobalEventBusRegistry` · `CoreEventLogTags`
+- [Architecture_Event.md](../../docs/architecture/Architecture_Event.md)
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.2.0`
+- 소비 프로젝트는 `com.monet5379.conditional-log`를 함께 pin한다 (`Monet5379.Core.Event` · `Monet5379.Core.Utility` asmdef 참조).
+
 ## [0.1.2] - 2026-11-03
 
 ### Fixed

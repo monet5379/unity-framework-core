@@ -6,11 +6,12 @@
 
 - **Runtime/Inspector** — `[Button]`, `[FoldoutGroup]` 등 Inspector attribute (`Monet5379.Core.Inspector`)
 - **Runtime/Utility** — 확장 메서드·컬렉션·Behaviour 베이스 등 (`Monet5379.Core.Utility`)
+- **Runtime/Event** — `GlobalEventBus<TKey>` · `GlobalCallback` (`Monet5379.Core.Event`)
 - **Editor/Inspector** — PropertyDrawer·Inspector 확장 (`Monet5379.Core.Inspector.Editor`)
 
 설치·의존·asmdef 참조: [`Packages/com.monet5379.framework-core/README.md`](Packages/com.monet5379.framework-core/README.md).
 
-아키텍처: [`docs/architecture/`](docs/architecture/) (추가 예정).
+아키텍처: [`docs/architecture/`](docs/architecture/) (Inspector · Utility · Event).
 
 ## 개발
 

@@ -15,7 +15,7 @@
 **Window → Package Manager → + → Install package from git URL**
 
 ```text
-https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.1.0
+https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.2.0
 ```
 
 태그 push 전에는 `#main` 또는 커밋 SHA를 사용한다.
@@ -38,6 +38,7 @@ https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet53
 |-----------|------|
 | `Monet5379.Core.Inspector` | Inspector attribute만 사용 |
 | `Monet5379.Core.Utility` | Utility API (`XBehaviour` 등 — Inspector asmdef 포함) |
+| `Monet5379.Core.Event` | `GlobalEventBus<TKey>` · `GlobalCallback` (게임 enum은 소비 repo) |
 | `Monet5379.Core.Inspector.Editor` | 에디터 전용 확장 (보통 게임 Editor asmdef) |
 
 ## 불변조건
@@ -47,4 +48,4 @@ https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet53
 - **Localization 전용 Inspector** (`StringTableKey*` 등)는 `unity-framework`에 남는다 — JSON 경로가 타이틀/베이스에 묶여 있다.
 - **DOTween·TMP 결합 Utility** (`UITextEx` 등)는 베이스 프레임워크에 남는다.
 
-상세 Architecture: repo `docs/architecture/` (Inspector·Utility 문서).
+상세 Architecture: repo `docs/architecture/` (Inspector · Utility · Event).

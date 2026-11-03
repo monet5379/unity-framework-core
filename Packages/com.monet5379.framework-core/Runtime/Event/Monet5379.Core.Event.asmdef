@@ -1,0 +1,16 @@
+{
+    "name": "Monet5379.Core.Event",
+    "rootNamespace": "Monet5379",
+    "references": [
+        "ConditionalLog.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
