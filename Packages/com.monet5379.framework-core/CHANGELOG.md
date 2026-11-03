@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-11-03
+
+### Fixed
+
+- `Monet5379.Core.Localization` · `Monet5379.Core.Localization.Editor` asmdef 및 신규 Runtime/Editor 스크립트 `.meta` 누락 — UPM import 후 `Monet5379.Core.Localization` 어셈블리 미생성
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.1`
+
 ## [0.3.0] - 2026-11-03
 
 ### Added
