@@ -1,0 +1,14 @@
+{
+  "name": "com.monet5379.framework-core",
+  "version": "0.1.0",
+  "displayName": "Framework Core",
+  "description": "스튜디오 공통 Inspector attribute·Drawer와 장르 중립 Utility",
+  "unity": "6000.3",
+  "dependencies": {
+    "com.unity.ugui": "2.0.0"
+  },
+  "author": {
+    "name": "monet5379",
+    "email": "monet5379@gmail.com"
+  }
+}
