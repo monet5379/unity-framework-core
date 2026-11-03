@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-03
+
+### Fixed
+
+- `package.json.meta` · `Monet5379.Core.Inspector.Editor.asmdef.meta` — `guid` 32자 16진수 규격 (Unity import 경고·에러)
+
 ## [0.1.1] - 2026-11-03
 
 ### Fixed
