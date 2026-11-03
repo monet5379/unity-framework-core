@@ -18,3 +18,5 @@
 ## 개발
 
 소스는 `Packages/com.monet5379.framework-core/`만 UPM 패키지다. 호스트 Unity 프로젝트는 소비 repo(`unity-framework` 등)에서 `file:` 또는 Git URL로 연결한다.
+
+무엇을 코어로 옮길지와 개발·태그 절차는 [`docs/CorePromotion.md`](docs/CorePromotion.md)를 따른다.

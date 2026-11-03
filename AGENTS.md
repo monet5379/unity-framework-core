@@ -39,6 +39,7 @@ unity-framework-core/
 - 네임스페이스 변경 금지 — 런타임 `Monet5379`, 에디터 `Monet5379.Inspectors` / `Monet5379.Inspectors.Internal`.
 - `com.monet5379.conditional-log`는 `package.json` 전이 의존으로 넣지 않는다. README·Architecture에 소비 프로젝트 pin을 적는다.
 - 구조·public API·asmdef 경계 변경 시 `docs/architecture/` 갱신. 계약 변경 시 패키지 README 먼저.
+- 베이스·타이틀 코드를 코어로 옮길지는 [`docs/CorePromotion.md`](docs/CorePromotion.md) 승격 조건으로 판단한다. 태그 전에는 같은 문서 §태그 전 점검을 본다.
 - Shell에서 Unity `-batchmode` · 프로젝트 `scripts/` 래퍼 실행 금지 — Kit `unity-cli-agent.mdc`.
 - 커밋은 사용자 **명시 요청** 시에만. Kit CommitMessages — `type(scope): 한글 제목` + **본문(why) 필수**
 
