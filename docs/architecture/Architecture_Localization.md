@@ -61,6 +61,39 @@ flowchart LR
   CTX --> ULT
 ```
 
+## 흐름 (Flow)
+
+### 런타임 (Runtime)
+
+```text
+BeforeSceneLoad
+  GameLocalizationSourceBootstrap → LocalizationContext.Register(source)
+
+UILocalizedText OnEnable
+  Font binding OnEnabled (커스텀 언어 라벨 hold)
+  XBehaviour → LocalizationContext.LanguageChanged +=
+  RefreshIfLanguageChanged
+    Source == null → return
+    CurrentLanguage == _lastAppliedLanguage → return
+    RefreshForLanguage:
+      Font binding Apply (TMP text 비운 뒤 폰트)
+      Typography binding Apply
+      Content ReloadFromTable (Source.TryGetString)
+      WriteTo TMP
+
+GameLanguage.SetLanguage (Framework)
+  GAME_LANGUAGE_CHANGED (타이틀·폰트 정렬 리스너)
+  LocalizationContext.RaiseLanguageChanged → UILocalizedText
+```
+
+### 에디터 (Editor)
+
+```text
+StringTableKeyCatalog — AssetDatabase로 StringUI.json · StringDialogue.json Key 목록
+[StringTableKey] — StringTableKeyDrawer / Dropdown
+UILocalizedText partial — OnValidate · AutoSetting (enum 백업 문자열)
+```
+
 ## 불변조건과 주의점 (Invariants & Gotchas)
 
 - **등록 시점:** `UILocalizedText.OnEnable`은 첫 씬(Splash)에서 `GameApp`보다 먼저일 수 있다. Source는 **`BeforeSceneLoad`**에 등록한다 (베이스 `GameLocalizationSourceBootstrap`).
@@ -69,7 +102,20 @@ flowchart LR
 - **언어 enum:** `LanguageNames` 목록 변경은 패키지 버전 bump. int 저장값과 enum 순서를 깨지 않는다.
 - **로그 태그:** `LocalizationLogTags.Font`와 소비 `GameLogTags.Font`는 동일 LogTag 이름 → ConditionalLog 필터 공유.
 
+## 변경 가이드 (Change Guidelines)
+
+| 변경 | 확인 |
+|------|------|
+| `LanguageNames` 멤버 추가·순서 | int 직렬화 · CHANGELOG · 소비 PlayerPrefs·시트 컬럼 |
+| binding·`UILocalizedText` API | 이 문서 Flow · unity-framework Localization (부트·PathMeta) |
+| `ILocalizationSource` 계약 | 소비 `GameLocalizationSource` · `BeforeSceneLoad` Register |
+| `[StringTableKey]` · catalog JSON | README StringTableKey 경로 · AssetsLayout |
+| asmdef | TMP · TmpFontPipeline · manifest pin |
+| breaking | CHANGELOG · 소비 manifest 태그 |
+
 ## 관련 문서 (See also)
 
 - [Architecture_Event.md](Architecture_Event.md) — 전역 이벤트 (언어 UI는 LocalizationContext 우선)
+- [Packages/com.monet5379.framework-core/README.md](../../Packages/com.monet5379.framework-core/README.md) — 설치 · asmdef · JSON 경로
+- [docs/architecture/README.md](README.md)
 - unity-framework [Architecture_Localization.md](https://github.com/monet5379/unity-framework/blob/main/docs/studio/architecture/Architecture_Localization.md) — 부트·PathMeta·`GameJsonData`·라벨 로더

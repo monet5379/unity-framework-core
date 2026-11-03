@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- `docs/architecture/` — Event·Localization Architecture에 Flow·변경 가이드 보강 · 목차에 Localization 추가
+- repo `README.md` — Event·Localization asmdef 목록 반영
+
 ## [0.3.2] - 2026-11-03
 
 ### Fixed

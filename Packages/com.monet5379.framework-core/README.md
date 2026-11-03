@@ -63,3 +63,10 @@ AssetsLayout 관례와 맞춘다. 경로 설정 API는 제공하지 않는다.
 - **DOTween·TMP 결합 Utility** (`UITextEx` 등)는 베이스 프레임워크에 남는다.
 
 상세 Architecture: repo `docs/architecture/` (Inspector · Utility · Event · Localization).
+
+| 문서 | 내용 |
+|------|------|
+| [Architecture_Inspector.md](../../docs/architecture/Architecture_Inspector.md) | attribute · catch-all Editor |
+| [Architecture_Utility.md](../../docs/architecture/Architecture_Utility.md) | 장르 중립 Utility |
+| [Architecture_Event.md](../../docs/architecture/Architecture_Event.md) | `GlobalEventBus<TKey>` · Reset 레지스트리 |
+| [Architecture_Localization.md](../../docs/architecture/Architecture_Localization.md) | `ILocalizationSource` · `UILocalizedText` · binding |

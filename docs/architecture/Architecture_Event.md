@@ -52,13 +52,43 @@ flowchart LR
   Bus --> Registry
 ```
 
+## 흐름 (Flow)
+
+### 런타임 (Runtime)
+
+```text
+Register<TCallback>(key, callback)  → 슬롯 없으면 typeof(TCallback)로 생성
+                                     → 시그니처 불일치 시 로그 후 무시
+Unregister(key, callback)             → 동일 시그니처만 제거
+Send(key, …)                         → WeakReference dead entry 제거 후 invoke
+                                     → 예외는 LogTag Global로 기록, 나머지 콜백 계속
+SubsystemRegistration Reset          → GlobalEventBusRegistry가 등록된 Clear만 호출
+```
+
+소비 Framework는 `GlobalEvent.Register` / `Send` / `Unregister` facade가 `GlobalEventBus<GlobalEventType>`에 위임한다. 호출부 시그니처는 v0.2.0 이전과 동일하다.
+
+### 에디터 (Editor)
+
+버스 상태는 플레이 모드 진입·`SubsystemRegistration`마다 비워진다. Edit Mode에서는 사용하지 않는다.
+
 ## 불변조건과 주의점 (Invariants & Gotchas)
 
 - **Reset:** `[RuntimeInitializeOnLoadMethod(SubsystemRegistration)]`은 **제네릭 타입**에 붙지 않으므로, non-generic `GlobalEventBusRegistry.Reset`만 사용한다. 새 `TKey` 버스를 추가해도 static ctor가 Clear를 등록하면 SubsystemRegistration에서 함께 비워진다.
 - **함께 pin:** `com.monet5379.conditional-log` — asmdef가 `ConditionalLog.Runtime`을 참조한다.
 - **태그 이름:** `CoreEventLogTags.Global`과 동일 `LogTag` 이름이면 ConditionalLog 필터 설정이 기존 Framework `GameLogTags.Global`과 호환된다.
 
-## 관련 링크
+## 변경 가이드 (Change Guidelines)
 
-- [README.md](../../Packages/com.monet5379.framework-core/README.md)
+| 변경 | 확인 |
+|------|------|
+| 새 `TKey` 버스 (다른 enum) | static ctor가 `RegisterClear` 호출하는지 · Registry Reset |
+| facade API | 소비 `GlobalEventSystem`만 — 패키지에 게임 enum 넣지 않음 |
+| 로그 태그 | `CoreEventLogTags` · 소비 `GameLogTags`에 `Global` 중복 금지 |
+| breaking | CHANGELOG · 소비 manifest 태그 |
+
+## 관련 문서 (See also)
+
+- [Packages/com.monet5379.framework-core/README.md](../../Packages/com.monet5379.framework-core/README.md) — 설치 · asmdef 표
+- [Architecture_Localization.md](Architecture_Localization.md) — UI 언어 갱신은 `LocalizationContext` (버스와 별도)
+- [docs/architecture/README.md](README.md)
 - 소비 베이스: [unity-framework Architecture_FrameworkBase](https://github.com/monet5379/unity-framework/blob/main/docs/studio/architecture/Architecture_FrameworkBase.md)
