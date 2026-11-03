@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-03
+
+### Fixed
+
+- UPM import — 누락된 폴더·`asmdef` `.meta` 추가 (`Monet5379.Core.*` 컴파일)
+- `Runtime/Utility/Extension` GUID — `Assets/Project/Scripts/Utility/Extension`과 충돌 제거
+
 ## [0.1.0] - 2026-11-03
 
 ### Added
