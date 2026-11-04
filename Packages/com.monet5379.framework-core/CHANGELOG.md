@@ -4,11 +4,21 @@
 
 ## [Unreleased]
 
+## [0.3.3] - 2026-11-04
+
+### Fixed
+
+- `SingletonMonoBehaviour<T>` — 에디터에서 Play를 반복하면 `_applicationIsQuitting`이 남아 `Instance`가 null을 반환하던 문제. `SubsystemRegistration`에서 static을 초기화한다
+
 ### Changed
 
 - `docs/architecture/` — Event·Localization Architecture에 Flow·변경 가이드 보강 · 목차에 Localization 추가
 - repo `README.md` — Event·Localization asmdef 목록 반영
 - `docs/CorePromotion.md` — 코어 승격 조건 · 개발·이전 절차 · 태그 전 점검 추가
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.3`
 
 ## [0.3.2] - 2026-11-03
 

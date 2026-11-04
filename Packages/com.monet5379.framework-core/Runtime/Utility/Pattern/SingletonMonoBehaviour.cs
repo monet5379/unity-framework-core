@@ -9,6 +9,17 @@ namespace Monet5379
         private static readonly object _lock = new();
         private static bool _applicationIsQuitting = false;
 
+        static SingletonMonoBehaviour()
+        {
+            SingletonMonoBehaviourRegistry.RegisterReset(ResetStaticState);
+        }
+
+        static void ResetStaticState()
+        {
+            _instance = null;
+            _applicationIsQuitting = false;
+        }
+
         public static T Instance
         {
             get

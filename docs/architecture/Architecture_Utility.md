@@ -44,6 +44,7 @@ Monet5379.Core.Utility (asmdef)
 | `DataConverter` · `BitConvert` | enum·문자열·비트 변환. 소비 프로젝트의 `Scripts/Data/`(SO·매니저)와 **경로·역할 구분** |
 | `Deck<T>` · `ArrayBuilder<T>` | 컬렉션 유틸. 장르 중립 용도(오디오 SFX 풀 등) |
 | `ComponentEx` · `GizmoEx` · `GUIEx` | 에디터 전용 API는 `#if UNITY_EDITOR` 가드. `using UnityEditor`는 가드 안 |
+| `SingletonMonoBehaviour<T>` | `DontDestroyOnLoad` 싱글톤. 종료 중 `Instance`는 null을 반환한다. Play 진입 `SubsystemRegistration`에서 `_instance`와 `_applicationIsQuitting`을 비운다 |
 
 ```mermaid
 flowchart LR
@@ -61,6 +62,7 @@ flowchart LR
 - **참조 방향:** `Monet5379.Core.Utility` → Core.Inspector · ConditionalLog. Utility가 게임 asmdef를 참조하지 않는다. 게임 asmdef는 Core.Utility를 references에 넣어 API를 쓴다.
 - **ConditionalLog:** `package.json`에 git 전이 의존으로 넣지 않는다. 소비 `manifest.json`에 `com.monet5379.conditional-log`를 **함께 pin**한다.
 - **에디터 API:** `GizmoEx` · `GUIEx` 등 `UnityEditor` 사용 파일은 player 빌드에서 컴파일되도록 `using`·본문을 `UNITY_EDITOR`로 가드한다.
+- **SingletonMonoBehaviour Reset:** `OnApplicationQuit`이 `_applicationIsQuitting`을 켜 종료 중 lazy 생성을 막는다. Domain Reload 없이 Play를 반복하면 그 static이 남으므로, 제네릭이 아닌 `SingletonMonoBehaviourRegistry`가 `SubsystemRegistration`에서 닫힌 `T`의 static을 초기화한다. `[RuntimeInitializeOnLoadMethod]`는 제네릭 타입에 붙지 않는다. 각 `T`의 static ctor가 `RegisterReset`을 호출한다.
 - **fork 전환:** 타이틀에 Utility 사본이 있으면 패키지 pin 전 **제거**(GUID 충돌). diff로 타이틀만의 수정이 있으면 패키지에 반영 후 태그를 올린다.
 
 ## 변경 가이드 (Change Guidelines)
