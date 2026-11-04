@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+## [0.3.4] - 2026-11-04
+
+### Added
+
+- `LocalizedTextContentBinding.UseTmpTextWhenStringKeyEmpty` — StringKey가 비어 있을 때 Awake에 TMP 문자열을 `_content`로 1회 캡처해 refresh 후에도 placeholder를 유지 (기본 off)
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.4`
+
 ## [0.3.3] - 2026-11-04
 
 ### Fixed

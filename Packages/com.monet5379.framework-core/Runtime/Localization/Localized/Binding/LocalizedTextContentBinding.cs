@@ -8,6 +8,8 @@ namespace Monet5379
         [StringTableKey]
         public string StringKey;
 
+        public bool UseTmpTextWhenStringKeyEmpty;
+
         private string _content;
         private string _spriteContent;
 
@@ -40,6 +42,31 @@ namespace Monet5379
         public bool HasSpriteContent()
         {
             return !string.IsNullOrEmpty(_spriteContent);
+        }
+
+        public void TryCaptureTmpTextWhenNoStringKey(TextMeshProUGUI text)
+        {
+            if (!UseTmpTextWhenStringKeyEmpty)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(StringKey))
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(_content))
+            {
+                return;
+            }
+
+            if (text == null || string.IsNullOrEmpty(text.text))
+            {
+                return;
+            }
+
+            _content = text.text;
         }
 
         public void WriteTo(TextMeshProUGUI text)

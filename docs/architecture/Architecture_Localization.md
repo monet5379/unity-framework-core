@@ -45,7 +45,7 @@ Monet5379.Core.Localization (asmdef)
 | `ILocalizationSource` | `CurrentLanguage` · `TryGetString` · `FontRoleCatalog` · `StyleTable` · `AcquireFontLanguage` / `ReleaseFontLanguage` |
 | `LocalizationContext` | `Register`로 Source 한 개. `LanguageChanged` 이벤트. `SubsystemRegistration`에서 Source·이벤트 초기화 |
 | `UILocalizedText` | `RefreshIfLanguageChanged`는 `Source == null`이면 건너뜀. `Source.CurrentLanguage`와 `_lastAppliedLanguage` 비교 |
-| `LocalizedTextContentBinding` | `ReloadFromTable` → `Source.TryGetString` |
+| `LocalizedTextContentBinding` | `ReloadFromTable` → `Source.TryGetString`. `UseTmpTextWhenStringKeyEmpty`이면 StringKey 없을 때 Awake에 TMP → `_content` 1회 |
 | `LocalizedTextFontBinding` | catalog·커스텀 언어 라벨 hold → Source |
 | `LocalizedTextTypographyBinding` | `Source.StyleTable` · `LocalizationLogTags.Font` |
 | `StringTableKeyCatalog` | Editor 전용. 위 JSON 경로에서 Key 목록 (런타임 `GameJsonData`와 별) |
@@ -68,6 +68,9 @@ flowchart LR
 ```text
 BeforeSceneLoad
   GameLocalizationSourceBootstrap → LocalizationContext.Register(source)
+
+UILocalizedText Awake
+  TryCaptureTmpTextWhenNoStringKey (UseTmpTextWhenStringKeyEmpty · StringKey empty · _content empty)
 
 UILocalizedText OnEnable
   Font binding OnEnabled (커스텀 언어 라벨 hold)

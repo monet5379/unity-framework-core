@@ -1,6 +1,6 @@
 {
   "name": "com.monet5379.framework-core",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "displayName": "Framework Core",
   "description": "스튜디오 공통 Inspector attribute·Drawer와 장르 중립 Utility",
   "unity": "6000.3",

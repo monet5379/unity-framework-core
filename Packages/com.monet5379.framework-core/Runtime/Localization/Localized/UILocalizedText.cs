@@ -49,6 +49,7 @@ namespace Monet5379
         protected void Awake()
         {
             EnsureTextMeshProAssigned();
+            _contentBinding.TryCaptureTmpTextWhenNoStringKey(_textMeshPro);
 
             if (_textMeshPro != null)
             {

@@ -17,7 +17,7 @@
 **Window → Package Manager → + → Install package from git URL**
 
 ```text
-https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.3
+https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.4
 ```
 
 태그 push 전에는 `#main` 또는 커밋 SHA를 사용한다.
