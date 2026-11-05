@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [0.3.5] - 2026-11-05
+
 ### Added
 
 - `ButtonAttribute.HideUnlessOverridden` — 인스펙터 대상 타입이 메서드를 직접 선언한 경우에만 버튼을 그린다
@@ -11,6 +13,10 @@
 ### Changed
 
 - `XBehaviour.AutoGetComponents` · `AutoAddComponents` · `AutoSetting` · `AutoNaming` — `HideUnlessOverridden`. override하지 않은 파생 인스펙터에서는 버튼이 보이지 않는다. `AutoAddComponents` · `AutoNaming` 훅을 추가한다
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.5`
 
 ## [0.3.4] - 2026-11-04
 
