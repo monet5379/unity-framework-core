@@ -11,6 +11,8 @@ namespace Monet5379
 
         public int Order { get; set; }
 
+        public bool HideUnlessOverridden { get; set; }
+
         public ButtonAttribute()
             : this(null, ButtonSizes.Small)
         {

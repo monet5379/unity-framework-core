@@ -112,6 +112,11 @@ namespace Monet5379.Inspectors.Internal
                         continue;
                     }
 
+                    if (attribute.HideUnlessOverridden && method.DeclaringType != type)
+                    {
+                        continue;
+                    }
+
                     int depth = GetDepth(type, baseDefinition.DeclaringType);
                     found[key] = new ButtonMethod(method, attribute, depth, baseDefinition.MetadataToken);
                 }

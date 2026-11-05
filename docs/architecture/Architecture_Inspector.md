@@ -60,7 +60,7 @@ Packages/com.monet5379.framework-core/Editor/Inspector/
 | `FieldAttributeCache` | 타입 계층의 instance 필드 ↔ property 이름별 attribute 메타 캐시 |
 | `InspectorConditionEvaluator` | ShowIf / EnableIf / DisableIf 평가 (`@` 멤버 표현식 미지원) |
 | `InspectorGuiColorUtility` | `GUIColorAttribute.GetColor` 인스턴스 메서드 → 필드 배경색 |
-| `ButtonMethodCache` | 상속 계층의 `[Button]` 수집 · override는 파생 선언 하나 · Order · 코루틴/필수 파라미터 거부 |
+| `ButtonMethodCache` | 상속 계층의 `[Button]` 수집 · override는 파생 선언 하나 · `HideUnlessOverridden`는 인스펙터 대상 타입이 직접 선언한 경우만 · Order · 코루틴/필수 파라미터 거부 |
 
 **네임스페이스:** Runtime attribute는 **`Monet5379`**. Editor만 **`Monet5379.Inspectors`** · **`Monet5379.Inspectors.Internal`** (`internal` 구현).
 
@@ -85,6 +85,7 @@ Packages/com.monet5379.framework-core/Editor/Inspector/
 - 반환 `IEnumerator`(코루틴) 메서드는 버튼 비활성 + 툴팁 사유
 - 파라미터가 있으면 **모든 파라미터에 기본값**이 있어야 호출 가능
 - static/instance 모두 지원. instance 호출 시 `Undo.RecordObjects` · `SetDirty` · 프리팹 instance modification 기록
+- `HideUnlessOverridden = true`이면 인스펙터 대상 타입이 그 메서드를 직접 선언(`override`)한 경우에만 버튼을 그린다. 베이스에만 있으면 숨긴다. 중간 타입만 override하고 leaf가 다시 override하지 않으면 leaf 인스펙터에서도 숨긴다. `XBehaviour.AutoGetComponents` · `AutoAddComponents` · `AutoSetting` · `AutoNaming`이 이 플래그를 쓴다
 
 ## 흐름 (Flow)
 

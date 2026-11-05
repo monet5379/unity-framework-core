@@ -25,14 +25,26 @@ namespace Monet5379
         }
 
         [FoldoutGroup("Buttons", 999)]
-        [Button("Auto Get Components", ButtonSizes.Medium)]
+        [Button("Auto Get Components", ButtonSizes.Medium, HideUnlessOverridden = true)]
         public virtual void AutoGetComponents()
         {
         }
 
         [FoldoutGroup("Buttons", 999)]
-        [Button("Auto Setting", ButtonSizes.Medium)]
+        [Button("Auto Add Components", ButtonSizes.Medium, HideUnlessOverridden = true)]
+        public virtual void AutoAddComponents()
+        {
+        }
+
+        [FoldoutGroup("Buttons", 999)]
+        [Button("Auto Setting", ButtonSizes.Medium, HideUnlessOverridden = true)]
         public virtual void AutoSetting()
+        {
+        }
+
+        [FoldoutGroup("Buttons", 999)]
+        [Button("Auto Naming", ButtonSizes.Medium, HideUnlessOverridden = true)]
+        public virtual void AutoNaming()
         {
         }
 
