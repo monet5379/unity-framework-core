@@ -39,7 +39,7 @@ Monet5379.Core.Utility (asmdef)
 
 | 식별자 | 역할 |
 |--------|------|
-| `XBehaviour` | `MonoBehaviour` 베이스. `OnStart`·활성화(`IsStarted` 이후)에 `RegisterGlobalEvent`, 비활성·파괴 시 `UnregisterGlobalEvent`. `StartXCoroutine`은 hierarchy 비활성이면 null. `AutoGetComponents` · `AutoAddComponents` · `AutoSetting` · `AutoNaming`은 `[Button(HideUnlessOverridden = true)]` — 파생 타입이 `override`한 메서드만 인스펙터 버튼 |
+| `XBehaviour` | `MonoBehaviour` 베이스. `OnStart`·활성화(`IsStarted` 이후)에 `RegisterGlobalEvent`, 비활성·파괴 시 `UnregisterGlobalEvent`. `StartXCoroutine`은 hierarchy 비활성이면 null. `AutoGetComponents` · `AutoAddComponents` · `AutoSetting` · `AutoNaming`은 `[Button(HideUnlessOverridden = true)]` — 계층에서 `override`된 메서드만 인스펙터 버튼. 중간 타입의 override는 하위 타입에도 보인다 |
 | `CollectionEx` | `T[]` · `List<>`(인덱스 포함)용 `IsValid` extension. **`SoundAsset` overload는 패키지에 없음** |
 | `DataConverter` · `BitConvert` | enum·문자열·비트 변환. 소비 프로젝트의 `Scripts/Data/`(SO·매니저)와 **경로·역할 구분** |
 | `Deck<T>` · `ArrayBuilder<T>` | 컬렉션 유틸. 장르 중립 용도(오디오 SFX 풀 등) |

@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+## [0.3.6] - 2026-11-06
+
+### Changed
+
+- `ButtonAttribute.HideUnlessOverridden` — 계층 어딘가에서 `override`되면 하위 타입 인스펙터에도 버튼을 그린다. 인스펙터 대상이 직접 선언하지 않아도 된다
+- `XBehaviour.AutoAddComponents` — 추가 전에 `AutoGetComponents`를 호출해 캐시를 먼저 채운다
+
+### Notes
+
+- Git URL pin: `https://github.com/monet5379/unity-framework-core.git?path=/Packages/com.monet5379.framework-core#v0.3.6`
+
 ## [0.3.5] - 2026-11-05
 
 ### Added

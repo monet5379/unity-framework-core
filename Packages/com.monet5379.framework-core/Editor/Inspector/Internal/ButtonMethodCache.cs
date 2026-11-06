@@ -112,7 +112,7 @@ namespace Monet5379.Inspectors.Internal
                         continue;
                     }
 
-                    if (attribute.HideUnlessOverridden && method.DeclaringType != type)
+                    if (attribute.HideUnlessOverridden && method.DeclaringType == baseDefinition.DeclaringType)
                     {
                         continue;
                     }
